@@ -1,0 +1,39 @@
+<div class="row mt-4">
+  <div class="col-6 mx-auto">
+
+<form #myForm>
+<mat-card>
+  <mat-card-header>
+    <h1>Otp verfictaion</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="w-100">
+      <mat-label>Otp Text</mat-label>
+      <input [(ngModel)]="model.otpText"  #otpText="ngModel" required maxLength="6" minlength="6" name="otpText" matInput/>
+      @if (otpText.touched && !otpText.valid && otpText.errors) {
+        @if(otpText.errors["required"]){
+          <span class="error-span">otpText is Required</span>
+        }
+        @if(otpText.errors["minlength"] || otpText.errors["maxLength"] ){
+          <span class="error-span">otpText Must be = 6 charachters</span>
+        }
+      }
+    </mat-form-field>
+
+  </mat-card-content>
+  <mat-card-actions  class="w-100">
+    <div class="row w-100">
+      <div class="col-md-6">
+        <button type="submit" (click)="ConfirmOtp()" class=" w-100" mat-flat-button color="primary">ConfirmOtp</button>
+      </div>
+      <div class="col-md-6 ">
+        <a routerLink="/Register" class=" w-100" mat-flat-button color="accent">Cancel</a>
+      </div>
+    </div>
+
+  </mat-card-actions>
+</mat-card>
+</form>
+</div>
+</div>
+

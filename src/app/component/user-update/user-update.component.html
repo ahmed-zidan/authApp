@@ -1,0 +1,40 @@
+<form #myForm>
+  <div class="row p-5">
+    <div class="col-md-12 mx-auto">
+      <mat-card>
+        <mat-card-header>
+          <h1>Add Customer</h1>
+        </mat-card-header>
+        <mat-card-content>
+          @if(data.currType == "status"){
+          <p style="display: flex;" class="m-2">
+            <mat-button-toggle-group name="sss" [(ngModel)]="active" aria-label="Font Style">
+              <mat-button-toggle  [value]="true" >Active</mat-button-toggle>
+              <mat-button-toggle [value]="false" >Not Active</mat-button-toggle>
+            </mat-button-toggle-group>
+          </p>
+        }@else {
+          <mat-form-field>
+            <mat-select [(value)]="role">
+              @for (item of roles; track $index) {
+                <mat-option value="{{item}}">{{item}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        }
+        </mat-card-content>
+        <mat-card-actions  class="w-100">
+          <div class="row w-100">
+            <div class="col-md-6">
+              <button type="submit" (click)="save()" class=" w-100" mat-flat-button color="primary">save</button>
+            </div>
+            <div class="col-md-6 ">
+               <a (click)="closeFunc()" class=" w-100" mat-flat-button color="accent">Cancel</a>
+            </div>
+          </div>
+
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</form>

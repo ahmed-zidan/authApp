@@ -1,0 +1,94 @@
+<div class="row mt-4">
+  <div class="col-6 mx-auto">
+
+<form #myForm>
+<mat-card>
+  <mat-card-header>
+    <h1>User Regesteration</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="w-100">
+      <mat-label>Name</mat-label>
+      <input [(ngModel)]="user.name" #name="ngModel" required minlength="5" name="Name" matInput/>
+      @if (name.touched && !name.valid && name.errors) {
+        @if(name.errors["required"]){
+          <span class="error-span">Name is Required</span>
+        }
+        @if(name.errors["minlength"]){
+          <span class="error-span">Name Must be > 5 charachters</span>
+        }
+      }
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Email</mat-label>
+      <input type="email" [(ngModel)]="user.email" #Email="ngModel" required minlength="5" name="Email" matInput/>
+      @if (Email.touched && !Email.valid && Email.errors) {
+        @if(Email.errors["required"]){
+          <span class="error-span">Email is Required</span>
+        }
+        @if(Email.errors["minlength"]){
+          <span class="error-span">Email Must be > 5 charachters</span>
+        }
+      }
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-label>Phone</mat-label>
+      <input type="number" [(ngModel)]="user.phone" #Phone="ngModel" required minlength="5" name="Phone" matInput/>
+      @if (Phone.touched && !Phone.valid && Phone.errors) {
+        @if(Phone.errors["required"]){
+          <span class="error-span">Phone is Required</span>
+        }
+        @if(Phone.errors["minlength"]){
+          <span class="error-span">Phone Must be > 5 charachters</span>
+        }
+      }
+    </mat-form-field>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="w-100">
+          <mat-label>Password</mat-label>
+          <input type="password" [(ngModel)]="user.password" #Password="ngModel" required minlength="5" name="Password" matInput/>
+          @if (Password.touched && !Password.valid && Password.errors) {
+            @if(Password.errors["required"]){
+              <span class="error-span">Phone is Required</span>
+            }
+            @if(Password.errors["minlength"]){
+              <span class="error-span">Phone Must be > 5 charachters</span>
+            }
+          }
+        </mat-form-field>
+      </div>
+      <div class="col">
+
+    <mat-form-field class="w-100">
+      <mat-label>Confirm Password</mat-label>
+      <input type="password" [(ngModel)]="cnfPassword" #CnfPassword="ngModel" name="cnfPassword" required minlength="5" matInput/>
+      @if (CnfPassword.touched) {
+        @if(CnfPassword.errors && CnfPassword.errors["required"]){
+          <span class="error-span">Phone is Required</span>
+        }
+        @if(CnfPassword.value != Password.value){
+          <span class="error-span">Password is wrong</span>
+        }
+      }
+    </mat-form-field>
+      </div>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions  class="w-100">
+    <div class="row w-100">
+      <div class="col-md-6">
+        <button type="submit" (click)="register()" class=" w-100" mat-flat-button color="primary">Submit</button>
+      </div>
+      <div class="col-md-6 ">
+        <a routerLink="/Login" class=" w-100" mat-flat-button color="accent">Back to login</a>
+      </div>
+    </div>
+
+  </mat-card-actions>
+</mat-card>
+</form>
+</div>
+</div>
+

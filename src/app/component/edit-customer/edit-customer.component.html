@@ -1,0 +1,81 @@
+<form #myForm>
+  <div class="row mt-5">
+    <div class="col-md-6 mx-auto">
+      <mat-card>
+        <mat-card-header>
+          <h1>Add Customer</h1>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="w-100">
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="cust.name" #name="ngModel" required minlength="5" name="Name" matInput/>
+            @if (name.touched && !name.valid && name.errors) {
+              @if(name.errors["required"]){
+                <span class="error-span">Name is Required</span>
+              }
+              @if(name.errors["minlength"]){
+                <span class="error-span">Name Must be > 5 charachters</span>
+              }
+            }
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input [(ngModel)]="cust.email" #email="ngModel" required minlength="5" name="email" matInput/>
+            @if (email.touched && !email.valid && email.errors) {
+              @if(email.errors["required"]){
+                <span class="error-span">Name is Required</span>
+              }
+              @if(email.errors["minlength"]){
+                <span class="error-span">Name Must be > 5 charachters</span>
+              }
+            }
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Phone</mat-label>
+            <input [(ngModel)]="cust.phone" #phone="ngModel" required minlength="5" name="phone" matInput/>
+            @if (phone.touched && !phone.valid && phone.errors) {
+              @if(phone.errors["required"]){
+                <span class="error-span">Name is Required</span>
+              }
+              @if(phone.errors["minlength"]){
+                <span class="error-span">Name Must be > 5 charachters</span>
+              }
+            }
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>creditLimit</mat-label>
+            <input [(ngModel)]="cust.creditLimit" #creditLimit="ngModel" name="creditLimit" matInput/>
+           
+          </mat-form-field>
+          <!-- <mat-radio-group class="example-radio-group" name="sss" [(ngModel)]="cust.isActive">
+            <mat-radio-button class="example-radio-button"  [value]="true">
+              Active
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button"  [value]="false">
+              Not Active
+            </mat-radio-button>
+          </mat-radio-group> -->
+          <p style="display: flex;" class="m-2">
+            <mat-button-toggle-group name="sss" [(ngModel)]="cust.isActive" aria-label="Font Style">
+              <mat-button-toggle  [value]="true" >Active</mat-button-toggle>
+              <mat-button-toggle [value]="false" >Not Active</mat-button-toggle>
+            </mat-button-toggle-group>
+          </p>
+         
+        </mat-card-content>
+        <mat-card-actions  class="w-100">
+          <div class="row w-100">
+            <div class="col-md-6">
+              <button type="submit" (click)="updateCustomer()" class=" w-100" mat-flat-button color="primary">Add Customer</button>
+            </div>
+            <div class="col-md-6 ">
+               <a routerLink="/customer" class=" w-100" mat-flat-button color="accent">Cancel</a>
+            </div>
+          </div>
+
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</form>
