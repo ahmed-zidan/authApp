@@ -1,0 +1,74 @@
+<div class="container">
+<div class="row">
+  <div class="col">
+<form #myForm="ngForm">
+  <div class="row mt-2 mb-2">
+    <div class="col mx-auto">
+      <mat-card>
+        <mat-card-header>
+
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="w-100">
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="user.name" #name="ngModel" required name="name" matInput/>
+            @if (email.touched && !email.valid && email.errors) {
+              @if(email.errors["required"]){
+                <span class="error-span">name is Required</span>
+              }
+            }
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input [(ngModel)]="user.email" #email="ngModel" required name="email" matInput/>
+            @if (email.touched && !email.valid && email.errors) {
+              @if(email.errors["required"]){
+                <span class="error-span">email is Required</span>
+              }
+            }
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>Phone</mat-label>
+            <input [(ngModel)]="user.phone" #phone="ngModel" required name="phone" matInput/>
+            @if (phone.touched && !phone.valid && phone.errors) {
+              @if(phone.errors["required"]){
+                <span class="error-span">phone is Required</span>
+              }
+            }
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <mat-label>{{data.updateOrAdd==1 ? "Password" : "change current password"}}</mat-label>
+            <input [(ngModel)]="user.password" type="password" #password="ngModel" [required]="data.updateOrAdd==1" name="password" matInput/>
+            @if (phone.touched && !phone.valid && phone.errors) {
+              @if(phone.errors["required"]){
+                <span class="error-span">password is Required</span>
+              }
+            }
+          </mat-form-field>
+          <p class="m-2">
+            <mat-button-toggle-group  name="roles" [(ngModel)]="user.role" required aria-label="Font Style">
+              @for (item of roles; track $index) {
+              <mat-button-toggle  [value]="item.name" >{{item.name}}</mat-button-toggle>
+              }
+            </mat-button-toggle-group>
+          </p>
+
+        </mat-card-content>
+        <mat-card-actions  class="w-100">
+          <div class="row w-100">
+            <div class="col-md-6">
+              <button type="submit" [disabled]="!myForm.valid" (click)="addOrUpdateUser()" class=" w-100" mat-flat-button color="primary"><mat-icon>man</mat-icon>Confirm</button>
+            </div>
+            <div class="col-md-6 ">
+               <button (click)="closeFunc()" class=" w-100" mat-flat-button color="accent"><mat-icon>cancel</mat-icon>Cancel</button>
+            </div>
+          </div>
+
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+</div>

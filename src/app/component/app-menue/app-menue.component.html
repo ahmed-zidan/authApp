@@ -1,6 +1,5 @@
-@if(getUserName().length > 1){
-<div class="row">
-  <div class="col">
+<!-- @if(getUserName().length > 1){ -->
+ @if(true){
     <mat-toolbar color="primary" class="mat-elevation-z8">
       <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
@@ -32,15 +31,13 @@
       </mat-drawer>
 
       <mat-drawer-content>
-        <div style="text-align: center; min-height: 600px;">
+        <div class="mx-5 mt-5" style="text-align: center; min-height: 600px;">
           <router-outlet></router-outlet>
         </div>
       </mat-drawer-content>
 
     </mat-drawer-container>
 
-  </div>
-</div>
 }@else{
   <router-outlet></router-outlet>
 }

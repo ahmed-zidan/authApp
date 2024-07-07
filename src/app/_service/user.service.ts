@@ -1,5 +1,5 @@
 import { Injectable ,signal} from '@angular/core';
-import { ConfirmUserDto, UserLoginDto, UserRegisterModel, UserResetPassword, UserUpdatePassword, userUpdateRoleDto, userUpdateStatusDto } from '../_model/UserModel';
+import { AddUserDto, ConfirmUserDto, userList, UserLoginDto, UserRegisterModel, UserResetPassword, UserUpdatePassword, userUpdateRoleDto, userUpdateStatusDto } from '../_model/UserModel';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
@@ -50,6 +50,37 @@ export class UserService {
   getAllRoles():Observable<any>{
     return this.http.get(environment.baseUrl + "Role/getAllRoles");
   }
+
+
+
+
+
+
+
+
+  //lead actions
+  getCurrentUserInLocal():userList{
+    return {id:'id2' , role:'Admin',email:'',name:'',phone:''}
+  }
+  getUsers(){
+    return this.http.get("assets/users.json");
+  }
+  getRoles(){
+    // let user = getCurrentUserInLocal();
+    // return this.http.get("assets/roles.json"+user.role);
+    return this.http.get("assets/roles.json");
+  }
+  addUser(user:AddUserDto){
+    return this.http.post("assets/users.json" , user);
+  }
+
+  updateUser(userId:string,user:AddUserDto){
+    return this.http.post("assets/users.json"+userId , user)
+  }
+  removeUser(id:string){
+    return this.http.get("assets/roles.json");
+  }
+
 }
 
 

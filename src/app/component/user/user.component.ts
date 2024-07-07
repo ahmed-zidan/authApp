@@ -24,7 +24,6 @@ export class UserComponent {
   users:userListDto[] = [];
   displayedColumns: string[] = ['id', 'name', 'email', 'phone','role','isActive','Action'];
   dataSource!: MatTableDataSource<userListDto>;
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
