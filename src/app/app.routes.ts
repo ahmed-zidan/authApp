@@ -18,6 +18,7 @@ import { ProfileComponent } from './leadComponent/profile/profile.component';
 import { LeadComponent } from './leadComponent/lead/lead.component';
 import { DealComponent } from './leadComponent/deal/deal.component';
 import { TaskComponent } from './leadComponent/task/task.component';
+import { DashboardComponent } from './leadComponent/dashboard/dashboard.component';
 
 export const routes: Routes = [
 
@@ -39,6 +40,7 @@ export const routes: Routes = [
   {path:'lead/lead' , component:LeadComponent},
   {path:'lead/deal' , component:DealComponent},
   {path:'lead/task' , component:TaskComponent},
+  {path:'lead/dashboard' , component:DashboardComponent},
 
 
   {path:'**' , component:LoginComponent },
